@@ -110,7 +110,7 @@ scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","A
 
 if __name__ == '__main__':
 
-    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples or len(os.listdir('{}/Snocam_data'.format(configDir))) >= TotalSamples:
+    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples:
 
         print("You have reached the data limit")
         flash(5)
