@@ -82,7 +82,7 @@ config.read(configLoc)
 
 driveSize = float(config['Flash_Drive_Size']['GB'])
 
-Stime = config['Data_Sample']['Minion_sample_time']
+Stime = config['Data_Sample']['Snocam_sample_time']
 
 try:
     float(test_string)
