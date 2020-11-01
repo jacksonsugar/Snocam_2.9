@@ -82,6 +82,14 @@ config.read(configLoc)
 
 driveSize = float(config['Flash_Drive_Size']['GB'])
 
+Stime = config['Data_Sample']['Minion_sample_time']
+
+try:
+    float(test_string)
+    Stime = float(Stime)
+except:
+    Stime = float(.2)
+
 iniImg = str2bool(config['Sampling_scripts']['Image'])
 iniTpp = str2bool(config['Sampling_scripts']['TempPres'])
 iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
@@ -110,7 +118,7 @@ scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","A
 
 if __name__ == '__main__':
 
-    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples:
+    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples or len(os.listdir('{}/Snocam_data'.format(configDir))) >= TotalSamples:
 
         print("You have reached the data limit")
         flash(5)
