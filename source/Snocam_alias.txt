@@ -1,0 +1,19 @@
+# Snocam aliases to make life easy
+alias clear_Snocam_pics='sudo rm -rf /home/pi/Desktop/Snocam_pics/*'
+
+alias clear_Snocam_data='sudo rm -rf /home/pi/Desktop/Snocam_data/*'
+
+alias list-Snocam-pics='ls /home/pi/Desktop/Snocam_pics/'
+
+alias kill-Snocam='sudo killall Snocam.py shutdown.py python'
+
+alias ifswitch='sudo python /home/pi/Documents/Snocam_tools/dhcp-switch.py'
+
+alias RTC-set='sudo python /home/pi/Documents/Snocam_tools/RTC-set.py'
+
+alias Snocam-off='sudo python /home/pi/Documents/Snocam_tools/Shutdown.py'
+
+alias preview-Snocam='sudo raspivid -t 0'
+
+alias stay-on='sudo python ~/Documents/Snocam_tools/Keep_Me_Alive.py'
+
