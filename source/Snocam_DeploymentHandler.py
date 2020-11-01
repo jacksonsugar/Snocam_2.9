@@ -8,9 +8,9 @@ import configparser
 import sys
 import pickle
 
-def flash():
+def flash(N):
     j = 0
-    while j <= 2:
+    while j <= N:
         GPIO.output(light, 1)
         time.sleep(.25)
         GPIO.output(light, 0)
@@ -110,17 +110,24 @@ scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","A
 
 if __name__ == '__main__':
 
-    if iniTpp == True:
-        os.system('sudo python /home/pi/Documents/Snocam_scripts/TempPres.py &')
+    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples or len(os.listdir('{}/Snocam_data'.format(configDir))) >= TotalSamples:
 
-    if iniImg == True:
-        os.system('sudo python /home/pi/Documents/Snocam_scripts/Snocam_image.py &')
+        print("You have reached the data limit")
+        flash(5)
 
-    if iniO2 == True:
-        os.system('sudo python /home/pi/Documents/Snocam_scripts/OXYBASE_RS232.py &')
+    else:
 
-    if iniAcc == True:
-        os.system('sudo python /home/pi/Documents/Snocam_scripts/ACC_100Hz.py &')
+        if iniTpp == True:
+            os.system('sudo python /home/pi/Documents/Snocam_scripts/TempPres.py &')
+
+        if iniImg == True:
+            os.system('sudo python /home/pi/Documents/Snocam_scripts/Snocam_image.py &')
+
+        if iniO2 == True:
+            os.system('sudo python /home/pi/Documents/Snocam_scripts/OXYBASE_RS232.py &')
+
+        if iniAcc == True:
+            os.system('sudo python /home/pi/Documents/Snocam_scripts/ACC_100Hz.py &')
 
     time.sleep(5)
 
@@ -129,7 +136,7 @@ if __name__ == '__main__':
     ## Check for wifi
 
         if check_wifi() == "Connected":
-            flash()
+            flash(2)
             kill_sampling(scriptNames)
             exit(0)
 
