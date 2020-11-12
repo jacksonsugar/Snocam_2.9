@@ -146,6 +146,8 @@ if __name__ == '__main__':
         if check_wifi() == "Connected":
             flash(2)
             kill_sampling(scriptNames)
+            time.sleep(1)
+            GPIO.output(light,0)
             exit(0)
 
         else:
