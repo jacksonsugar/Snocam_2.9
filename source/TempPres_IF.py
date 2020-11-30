@@ -26,9 +26,28 @@ data_config = configparser.ConfigParser()
 data_config.read('/home/pi/Documents/Snocam_scripts/Data_config.ini')
 
 configDir = data_config['Data_Dir']['Directory']
-configLoc = '{}/Snocam_config.ini'.format(configDir)
+
 config = configparser.ConfigParser()
-config.read(configLoc)
+configloc = '{}/Snocam_config.ini'.format(configDir)
+
+config.read(configloc)
+
+iniTpp = str2bool(config['Sampling_scripts']['Pressure'])
+iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
+
+Stime = config['Data_Sample']['Sensor_sample_time']
+
+try :
+    float(test_string)
+    Stime = float(Stime)
+except :
+    Stime = float(.2)
+
+Srate = float(config['Data_Sample']['Sensor_sample_rate'])
+
+Sf = 1/Srate
+
+TotalSamples = Stime*60*Srate
 
 firstp = open("/home/pi/Documents/Snocam_scripts/timesamp.pkl","rb")
 samp_time = pickle.load(firstp)
@@ -110,12 +129,12 @@ file = open(file_name,"a+")
 if iniTmp == True:
 
     file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar), Temp(C), TempTSYS01(C) \r\n")
+    file.write("Pressure(mbar), Temperature(C), Temperature High Accuracy(C) @ {} Hz for {} minutes\r\n".format(Srate, Stime))
 
 else:
 
     file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar),Temp(C) \r\n")
+    file.write("Pressure(mbar),Temperature(C) @ {} Hz for {} minutes\r\n".format(Srate,Stime))
 
 file.close()
 
