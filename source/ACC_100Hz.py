@@ -49,7 +49,7 @@ file_name = "/home/pi/Documents/Snocam_data/%s_ACC.txt" % samp_time
 file = open(file_name,"a+")
 
 file.write("%s\r\n" % samp_time)
-file.write("X,Y,Z = +/- 2g\r\n")
+file.write("X,Y,Z = +/- 2g @ 100 Hz\r\n")
 
 while NumSamples <= TotalSamples:
     # Read the X, Y, Z axis acceleration values and print them.
