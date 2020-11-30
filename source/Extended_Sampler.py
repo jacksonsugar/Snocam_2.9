@@ -17,7 +17,7 @@ config = configparser.ConfigParser()
 config.read(configLoc)
 
 iniImg = str2bool(config['Sampling_scripts']['Image'])
-iniTpp = str2bool(config['Sampling_scripts']['TempPres'])
+iniTpp = str2bool(config['Sampling_scripts']['Pressure'])
 iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
 iniO2  = str2bool(config['Sampling_scripts']['Oxybase'])
 iniAcc = str2bool(config['Sampling_scripts']['ACC_100Hz'])
