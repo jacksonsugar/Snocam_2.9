@@ -25,10 +25,10 @@ configloc = '{}/Snocam_config.ini'.format(configDir)
 
 config.read(configloc)
 
-iniTpp = str2bool(config['Sampling_scripts']['TempPres'])
+iniTpp = str2bool(config['Sampling_scripts']['Pressure'])
 iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
 
-Stime = config['Data_Sample']['Snocam_sample_time']
+Stime = config['Data_Sample']['Sensor_sample_time']
 
 try :
     float(test_string)
@@ -36,7 +36,7 @@ try :
 except :
     Stime = float(.2)
 
-Srate = float(config['Data_Sample']['Snocam_sample_rate'])
+Srate = float(config['Data_Sample']['Sensor_sample_rate'])
 
 Sf = 1/Srate
 
@@ -96,12 +96,12 @@ file = open(file_name,"a+")
 if iniTmp == True:
 
     file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar), Temp(C), TempTSYS01(C) \r\n")
+    file.write("Pressure(mbar), Temperature(C), Temperature High Accuracy(C) @ {} Hz for {} minutes\r\n".format(Srate,Stime))
 
 else:
 
     file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar),Temp(C) \r\n")
+    file.write("Pressure(mbar),Temperature(C) @ {} Hz for {} minutes \r\n".format(Srate,Stime))
 
 file.close()
 
