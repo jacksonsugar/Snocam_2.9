@@ -82,7 +82,7 @@ config.read(configLoc)
 
 driveSize = float(config['Flash_Drive_Size']['GB'])
 
-Stime = config['Data_Sample']['Snocam_sample_time']
+Stime = config['Data_Sample']['Sensor_sample_time']
 
 try:
     float(test_string)
@@ -91,7 +91,7 @@ except:
     Stime = float(.2)
 
 iniImg = str2bool(config['Sampling_scripts']['Image'])
-iniTpp = str2bool(config['Sampling_scripts']['TempPres'])
+iniTpp = str2bool(config['Sampling_scripts']['Pressure'])
 iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
 iniO2  = str2bool(config['Sampling_scripts']['Oxybase'])
 iniAcc = str2bool(config['Sampling_scripts']['ACC_100Hz'])
@@ -114,7 +114,7 @@ ping_google = "ping google.com -c 1"
 
 ps_test = "pgrep -a python"
 
-scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","ACC_100Hz.py","Extended_Sampler.py","Snocam_image_IF.py","TempPres_IF.py","OXYBASE_RS232_IF.py","ACC_100Hz_IF.py"]
+scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","ACC_100Hz.py","Extended_Sampler.py"]
 
 if __name__ == '__main__':
 
