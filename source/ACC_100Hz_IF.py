@@ -21,7 +21,7 @@ configloc = '{}/Snocam_config.ini'.format(configDir)
 
 config.read(configloc)
 
-Stime = config['Data_Sample']['Snocam_sample_time']
+Stime = config['Data_Sample']['Sensor_sample_time']
 
 try :
     float(test_string)
@@ -61,7 +61,7 @@ else:
 file = open(file_name,"a+")
 
 file.write("%s\r\n" % samp_time)
-file.write("X,Y,Z = +/- 2g\r\n")
+file.write("X,Y,Z = +/- 2g @ 100 Hz\r\n")
 
 while NumSamples <= TotalSamples:
     # Read the X, Y, Z axis acceleration values and print them.
