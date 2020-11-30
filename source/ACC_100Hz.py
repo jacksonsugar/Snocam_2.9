@@ -21,7 +21,7 @@ configloc = '{}/Snocam_config.ini'.format(configDir)
 
 config.read(configloc)
 
-Stime = config['Data_Sample']['Snocam_sample_time']
+Stime = config['Data_Sample']['Sensor_sample_time']
 
 try :
     float(test_string)
