@@ -101,8 +101,9 @@ if iniTmp == True:
 
 else:
 
-    file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar),Temperature(C) @ {} Hz for {} minutes \r\n".format(Srate,Stime))
+    file.write("Pressure(mbar), Temperature(C)\r\n")
+    file.write("Sample Rate: {} Hz Sample Time: {} minutes\r\n".format(Srate,Stime))
+    file.write("Sample timestamp: %s\r\n" % samp_time)
 
 file.close()
 
