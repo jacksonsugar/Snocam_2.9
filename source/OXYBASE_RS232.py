@@ -64,7 +64,7 @@ file = open(file_name,"a+")
 file.write("{}\r\n".format(file_name))
 
 file.write("Oxygen @ %s\r\n" % samp_time)
-file.write("Sample Rate: %sHz \n" % Srate)
+file.write("Sample Rate: {} Hz Sample Time: {} minutes\n".format(Srate,Stime))
 
 while(Sample_number > i):
 
