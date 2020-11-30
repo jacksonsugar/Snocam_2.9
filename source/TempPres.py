@@ -95,8 +95,9 @@ file = open(file_name,"a+")
 
 if iniTmp == True:
 
-    file.write("T+P INI @ %s\r\n" % samp_time)
-    file.write("Pressure(mbar), Temperature(C), Temperature High Accuracy(C) @ {} Hz for {} minutes\r\n".format(Srate,Stime))
+    file.write("Pressure(mbar), Temperature(C), Temperature High Accuracy(C)\r\n")
+    file.write("Sample Rate: {} Hz Sample Time: {} minutes\r\n".format(Srate,Stime))
+    file.write("Sample timestamp: %s\r\n" % samp_time)
 
 else:
 
