@@ -114,11 +114,11 @@ ping_google = "ping google.com -c 1"
 
 ps_test = "pgrep -a python"
 
-scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","ACC_100Hz.py","Extended_Sampler.py"]
+scriptNames = ["Temp.py", "TempPres.py", "Snocam_image.py","OXYBASE_RS232.py","ACC_100Hz.py"]
 
 if __name__ == '__main__':
 
-    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples or len(os.listdir('{}/Snocam_data'.format(configDir))) >= TotalSamples:
+    if len(os.listdir('{}/Snocam_pics'.format(configDir))) >= TotalSamples:
 
         print("You have reached the data limit")
         flash(5)
